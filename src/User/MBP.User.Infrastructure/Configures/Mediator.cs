@@ -4,7 +4,7 @@ using MediatR;
 
 namespace MBP.User.Infrastructure.Configures
 {
-	public static class ConfigureMediator
+	public static class Mediator
 	{
 		public static IServiceCollection AddMediator(this IServiceCollection services)
 		{

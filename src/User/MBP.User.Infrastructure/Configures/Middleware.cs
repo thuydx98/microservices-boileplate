@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Builder;
 
 namespace MBP.User.Infrastructure.Configures
 {
-	public static class ConfigureMiddleware
+	public static class Middleware
 	{
 		public static IApplicationBuilder UseMiddlewares(this IApplicationBuilder builder)
 		{

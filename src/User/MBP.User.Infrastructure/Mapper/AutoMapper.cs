@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
-using MBP.User.Infrastructure.Mapper;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MBP.User.Infrastructure.Configures
+namespace MBP.User.Infrastructure.Mapper
 {
-	public static class ConfigureAutoMapper
+	public static class AutoMapper
 	{
 		public static IServiceCollection AddAutoMapper(this IServiceCollection services)
 		{
