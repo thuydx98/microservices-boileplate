@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace MBP.Common.Extensions
 {
-	public static class IFormFileExtension
+	public static class IFormFile
 	{
-		public static async Task<byte[]> GetBytes(this IFormFile formFile)
+		public static async Task<byte[]> GetBytes(this Microsoft.AspNetCore.Http.IFormFile formFile)
 		{
 			using (var memoryStream = new MemoryStream())
 			{

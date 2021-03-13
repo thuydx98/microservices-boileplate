@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace MBP.Common.Extensions
 {
-    public static class ExpressionExtension
+    public static class Expression
     {
         /// <summary>
         /// Creates a lambda expression that represents a conditional OR operation
@@ -15,8 +15,8 @@ namespace MBP.Common.Extensions
         /// and the left and right properties set to the specified values</returns>
         public static Expression<Func<T, Boolean>> OrElse<T>(Expression<Func<T, Boolean>> left, Expression<Func<T, Boolean>> right)
         {
-            Expression<Func<T, Boolean>> combined = Expression.Lambda<Func<T, Boolean>>(
-                Expression.OrElse(
+			Expression<Func<T, bool>> combined = System.Linq.Expressions.Expression.Lambda<Func<T, bool>>(
+				System.Linq.Expressions.Expression.OrElse(
                     left.Body,
                     new ExpressionParameterReplacer(right.Parameters, left.Parameters).Visit(right.Body)
                     ), left.Parameters);
@@ -33,8 +33,8 @@ namespace MBP.Common.Extensions
         /// and the left and right properties set to the specified values</returns>
         public static Expression<Func<T, Boolean>> AndAlso<T>(Expression<Func<T, Boolean>> left, Expression<Func<T, Boolean>> right)
         {
-            Expression<Func<T, Boolean>> combined = Expression.Lambda<Func<T, Boolean>>(
-                Expression.AndAlso(
+			Expression<Func<T, bool>> combined = System.Linq.Expressions.Expression.Lambda<Func<T, bool>>(
+				System.Linq.Expressions.Expression.AndAlso(
                     left.Body,
                     new ExpressionParameterReplacer(right.Parameters, left.Parameters).Visit(right.Body)
                     ), left.Parameters);
@@ -49,8 +49,8 @@ namespace MBP.Common.Extensions
 
             for (var i = left.Count; i >= 0; i--)
             {
-                combined = Expression.Lambda<Func<T, bool>>(
-                    Expression.AndAlso(
+                combined = System.Linq.Expressions.Expression.Lambda<Func<T, bool>>(
+					System.Linq.Expressions.Expression.AndAlso(
                         left[i].Body,
                         new ExpressionParameterReplacer(right.Parameters, left[i].Parameters).Visit(right.Body)
                     ), left[i].Parameters);
@@ -73,7 +73,7 @@ namespace MBP.Common.Extensions
             { ParameterReplacements.Add(fromParameters[i], toParameters[i]); }
         }
 
-        protected override Expression VisitParameter(ParameterExpression node)
+        protected override System.Linq.Expressions.Expression VisitParameter(ParameterExpression node)
         {
             ParameterExpression replacement;
 

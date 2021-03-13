@@ -34,9 +34,9 @@ namespace MBP.Identity.Data
 					.OnDelete(DeleteBehavior.Cascade);
 			});
 
-			modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("MbpUserClaims");
-			modelBuilder.Entity<IdentityUserToken<string>>().ToTable("MbpUserTokens");
-			modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("MbpRoleClaims");
+			modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("MbpUserClaims");
+			modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("MbpUserTokens");
+			modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("MbpRoleClaims");
 		}
 	}
 }

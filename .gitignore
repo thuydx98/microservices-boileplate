@@ -14,7 +14,7 @@ nupkg/
 
 # User-specific files
 *.suo
-*.user
+*.csproj.user
 *.userosscache
 *.sln.docstates
 
@@ -36,4 +36,4 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
-/src/Identity/MBP.Identity/tempkey.jwk
+tempkey.jwk

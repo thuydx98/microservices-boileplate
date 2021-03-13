@@ -3,7 +3,7 @@ using System.Text;
 
 namespace MBP.Common.Security
 {
-	public static class EncodingExtensions
+	public static class EncodingExtension
 	{
 		private static string Base62CodingSpace = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 

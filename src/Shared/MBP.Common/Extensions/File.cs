@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MBP.Common.Extensions
 {
-	public static class FileExtension
+	public static class File
 	{
 		public static async Task<string> ReadFileContentAsync(IList<string> paths)
 		{

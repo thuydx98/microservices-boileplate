@@ -18,11 +18,11 @@ namespace MBP.Contracts.Middlewares.Authorization
 	public class PermissionHandler : AuthorizationHandler<PermissionRequirement>
 	{
 		private readonly IHttpContextAccessor _httpContextAccessor;
-		private readonly Lazy<HttpClient> _lazyHttpClient;
+		private readonly Lazy<System.Net.Http.HttpClient> _lazyHttpClient;
 
 		public PermissionHandler(
 			IHttpContextAccessor httpContextAccessor,
-			Lazy<HttpClient> lazyHttpClient)
+			Lazy<System.Net.Http.HttpClient> lazyHttpClient)
 		{
 			_httpContextAccessor = httpContextAccessor;
 			_lazyHttpClient = lazyHttpClient;

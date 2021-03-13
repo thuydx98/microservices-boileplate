@@ -9,7 +9,7 @@ namespace MBP.Identity.Infrastructure.Configures
 	{
 		public static IServiceCollection AddDbContext(this IServiceCollection services)
 		{
-			var connectionString = Environment.GetEnvironmentVariable("IDENTITY_SERVER4_CONNECTION_STRING");
+			var connectionString = Environment.GetEnvironmentVariable("IDENTITY_CONNECTION_STRING");
 
 			services.AddDbContext<IdentityDbContext>(options => options.UseNpgsql(connectionString));
 

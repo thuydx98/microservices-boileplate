@@ -7,7 +7,7 @@ using MBP.Common.Enums;
 
 namespace MBP.Common.Extensions
 {
-	public static class HttpClientExtension
+	public static class HttpClient
 	{
 		public static async Task<TResult> ReadContentAsync<TResult>(this HttpResponseMessage response)
 		{
@@ -20,7 +20,7 @@ namespace MBP.Common.Extensions
 			return result;
 		}
 
-		public static async Task<TResult> GetAsync<TResult>(this HttpClient httpClient, string requestUri)
+		public static async Task<TResult> GetAsync<TResult>(this System.Net.Http.HttpClient httpClient, string requestUri)
 		{
 			var response = await httpClient.GetAsync(requestUri);
 			if (!response.IsSuccessStatusCode)
@@ -31,13 +31,13 @@ namespace MBP.Common.Extensions
 			return await response.ReadContentAsync<TResult>();
 		}
 
-		public static async Task<HttpResponseMessage> PostAsJsonAsync(this HttpClient httpClient, string url, object data = null)
+		public static async Task<HttpResponseMessage> PostAsJsonAsync(this System.Net.Http.HttpClient httpClient, string url, object data = null)
 		{
 			var httpContent = ConvertToStringContent(data);
 			return await httpClient.PostAsync(url, httpContent);
 		}
 
-		public static async Task<TResult> PostAsJsonAsync<TResult>(this HttpClient httpClient, string url, object data = null)
+		public static async Task<TResult> PostAsJsonAsync<TResult>(this System.Net.Http.HttpClient httpClient, string url, object data = null)
 		{
 			var response = await httpClient.PostAsJsonAsync(url, data);
 			if (!response.IsSuccessStatusCode)
@@ -48,13 +48,13 @@ namespace MBP.Common.Extensions
 			return await response.ReadContentAsync<TResult>();
 		}
 
-		public static async Task<HttpResponseMessage> PostAsFormAsync(this HttpClient httpClient, string url, object data = null)
+		public static async Task<HttpResponseMessage> PostAsFormAsync(this System.Net.Http.HttpClient httpClient, string url, object data = null)
 		{
 			var httpContent = await ConvertToFormDataAsync(data);
 			return await httpClient.PostAsync(url, httpContent);
 		}
 
-		public static async Task<TResult> PostAsFormAsync<TResult>(this HttpClient httpClient, string url, object data = null)
+		public static async Task<TResult> PostAsFormAsync<TResult>(this System.Net.Http.HttpClient httpClient, string url, object data = null)
 		{
 			var response = await httpClient.PostAsFormAsync(url, data);
 			if (!response.IsSuccessStatusCode)
@@ -65,13 +65,13 @@ namespace MBP.Common.Extensions
 			return await response.ReadContentAsync<TResult>();
 		}
 
-		public static async Task<HttpResponseMessage> PutAsJsonAsync(this HttpClient httpClient, string url, object data = null)
+		public static async Task<HttpResponseMessage> PutAsJsonAsync(this System.Net.Http.HttpClient httpClient, string url, object data = null)
 		{
 			var httpContent = ConvertToStringContent(data);
 			return await httpClient.PutAsync(url, httpContent);
 		}
 
-		public static async Task<TResult> PutAsJsonAsync<TResult>(this HttpClient httpClient, string url, object data = null)
+		public static async Task<TResult> PutAsJsonAsync<TResult>(this System.Net.Http.HttpClient httpClient, string url, object data = null)
 		{
 			var response = await httpClient.PutAsJsonAsync(url, data);
 			if (!response.IsSuccessStatusCode)
@@ -82,13 +82,13 @@ namespace MBP.Common.Extensions
 			return await response.ReadContentAsync<TResult>();
 		}
 
-		public static async Task<HttpResponseMessage> PutAsFormAsync(this HttpClient httpClient, string url, object data = null)
+		public static async Task<HttpResponseMessage> PutAsFormAsync(this System.Net.Http.HttpClient httpClient, string url, object data = null)
 		{
 			var httpContent = await ConvertToFormDataAsync(data);
 			return await httpClient.PutAsync(url, httpContent);
 		}
 
-		public static async Task<TResult> PutAsFormAsync<TResult>(this HttpClient httpClient, string url, object data = null)
+		public static async Task<TResult> PutAsFormAsync<TResult>(this System.Net.Http.HttpClient httpClient, string url, object data = null)
 		{
 			var response = await httpClient.PutAsFormAsync(url, data);
 			if (!response.IsSuccessStatusCode)
@@ -117,11 +117,11 @@ namespace MBP.Common.Extensions
 			{
 				if (item.GetValue(obj, null) != null)
 				{
-					if (item.PropertyType == typeof(IFormFile))
+					if (item.PropertyType == typeof(Microsoft.AspNetCore.Http.IFormFile))
 					{
-						var file = (IFormFile)item.GetValue(obj, null);
+						var file = (Microsoft.AspNetCore.Http.IFormFile)item.GetValue(obj, null);
 						var bytes = await file.GetBytes();
-						form.Add(new ByteArrayContent(bytes, 0, bytes.Length), item.Name, file.FileName);
+						form.Add(new ByteArrayContent((byte[])bytes, 0, (int)bytes.Length), item.Name, file.FileName);
 					}
 					else
 					{

@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace MBP.Common.Extensions
 {
-	public static class EnumExtension
+	public static class Enum
 	{
-		public static string GetDescription(this Enum value)
+		public static string GetDescription(this System.Enum value)
 		{
 			var field = value.GetType().GetField(value.ToString());
 			var attributes = field.GetCustomAttributes(typeof(DescriptionAttribute), false);
