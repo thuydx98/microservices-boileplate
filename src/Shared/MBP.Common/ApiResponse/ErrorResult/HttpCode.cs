@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace MBP.Common.ApiResult.ErrorResult
+namespace MBP.Common.ApiResponse.ErrorResult
 {
 	public enum HttpCode
 	{

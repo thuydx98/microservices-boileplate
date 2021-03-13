@@ -1,5 +1,5 @@
-﻿using MBP.Common.ApiResult;
-using MBP.Common.ApiResult.ErrorResult;
+﻿using MBP.Common.ApiResponse;
+using MBP.Common.ApiResponse.ErrorResult;
 using MBP.Common.Constants;
 using MBP.Common.Enums;
 using MBP.Common.Extensions;
@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;

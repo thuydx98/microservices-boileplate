@@ -1,4 +1,4 @@
-﻿namespace MBP.Common.ApiResult
+﻿namespace MBP.Common.ApiResponse
 {
 	public class ApiJsonResult<TResult>
 	{

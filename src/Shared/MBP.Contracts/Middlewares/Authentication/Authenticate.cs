@@ -1,5 +1,5 @@
-﻿using MBP.Common.ApiResult;
-using MBP.Common.ApiResult.ErrorResult;
+﻿using MBP.Common.ApiResponse;
+using MBP.Common.ApiResponse.ErrorResult;
 using MBP.Common.Constants;
 using MBP.Common.Extensions;
 using Microsoft.AspNetCore.Mvc;

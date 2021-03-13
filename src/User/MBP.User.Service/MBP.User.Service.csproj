@@ -9,4 +9,13 @@
     <ProjectReference Include="..\MBP.User.Domain\MBP.User.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Permission\" />
+    <Folder Include="Role\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
 </Project>

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using MBP.Common.ApiResult.ErrorResult;
+using MBP.Common.ApiResponse.ErrorResult;
 using MBP.Common.Extensions;
 using MBP.Common.Enums;
 
-namespace MBP.Common.ApiResult
+namespace MBP.Common.ApiResponse
 {
 	public class ApiResult : IActionResult
 	{

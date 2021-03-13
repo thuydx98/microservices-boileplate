@@ -3,10 +3,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using System.Text.Json;
-using MBP.Common.ApiResult;
+using MBP.Common.ApiResponse;
 using MBP.Common.Enums;
 using MBP.Common.Extensions;
-using MBP.Common.ApiResult.ErrorResult;
+using MBP.Common.ApiResponse.ErrorResult;
 
 namespace MBP.Contracts.Middlewares
 {

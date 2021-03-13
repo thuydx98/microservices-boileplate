@@ -1,8 +1,7 @@
-﻿using MBP.Common.ApiResult;
+﻿using MBP.Common.ApiResponse;
 using MBP.Common.Extensions;
 using MBP.Contracts.ApiRoutes.UserService.ViewModels;
 using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MBP.Contracts.ApiRoutes.UserService
