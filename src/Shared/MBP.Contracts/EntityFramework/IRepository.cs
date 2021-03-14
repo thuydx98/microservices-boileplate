@@ -21,6 +21,15 @@ namespace MBP.Contracts.EntityFramework
 			bool ignoreQueryFilters = false,
 			CancellationToken cancellationToken = default);
 
+		Task<TResult> SingleOrDefaultAsync<TResult>(
+			Expression<Func<T, TResult>> selector,
+			Expression<Func<T, bool>> predicate = null,
+			Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
+			bool asNoTracking = true,
+			bool ignoreQueryFilters = false,
+			CancellationToken cancellationToken = default);
+
 		Task<ICollection<T>> GetListAsync(
 			Expression<Func<T, bool>> predicate = null,
 			Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,

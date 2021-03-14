@@ -54,6 +54,30 @@ namespace MBP.EntityFramework
 			return await query.FirstOrDefaultAsync(cancellationToken);
 		}
 
+		public virtual async Task<TResult> SingleOrDefaultAsync<TResult>(
+			Expression<Func<T, TResult>> selector,
+			Expression<Func<T, bool>> predicate = null,
+			Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+			Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null,
+			bool asNoTracking = true,
+			bool ignoreQueryFilters = false,
+			CancellationToken cancellationToken = default)
+		{
+			IQueryable<T> query = _dbSet;
+
+			if (asNoTracking) query = query.AsNoTracking();
+
+			if (include != null) query = include(query);
+
+			if (predicate != null) query = query.Where(predicate);
+
+			if (ignoreQueryFilters) query = query.IgnoreQueryFilters();
+
+			if (orderBy != null) return await orderBy(query).Select(selector).FirstOrDefaultAsync();
+
+			return await query.Select(selector).FirstOrDefaultAsync(cancellationToken);
+		}
+
 		public async Task<ICollection<T>> GetListAsync(
 			Expression<Func<T, bool>> predicate = null,
 			Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,

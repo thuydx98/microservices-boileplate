@@ -1,3 +1,4 @@
+using MBP.Identity.Infrastructure.Migrations;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -7,7 +8,8 @@ namespace MBP.Identity
 	{
 		public static void Main(string[] args)
 		{
-			CreateHostBuilder(args).Build().Run();
+			//CreateHostBuilder(args).Build().Run();
+			CreateHostBuilder(args).Build().UpdateSeedDataAsync().Run();
 		}
 
 		public static IHostBuilder CreateHostBuilder(string[] args) =>

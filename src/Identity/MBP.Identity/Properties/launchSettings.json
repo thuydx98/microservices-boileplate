@@ -7,7 +7,8 @@
         "ASPNETCORE_ENVIRONMENT": "Development",
         "PROTECT_KEY_PATH": "D://",
         "CODE_EXPIRE_TIME_IN_HOURS": "2",
-        "IDENTITY_CONNECTION_STRING": "Host=localhost;port=5432;Database=Identity;Username=postgres;Password=postgres"
+        "IDENTITY_CONNECTION_STRING": "Host=localhost;port=5432;Database=Identity;Username=postgres;Password=postgres",
+        "IDENTITY_CONFIGURATION_CONNECTION_STRING": "Host=localhost;port=5432;Database=Identity.Configuration;Username=postgres;Password=postgres"
       },
       "dotnetRunMessages": "true",
       "applicationUrl": "https://localhost:7001;http://localhost:5001"

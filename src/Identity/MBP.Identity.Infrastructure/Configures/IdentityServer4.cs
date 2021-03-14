@@ -17,7 +17,7 @@ namespace MBP.Identity.Infrastructure.Configures
 		public static IServiceCollection AddIdentityServer4(this IServiceCollection services)
 		{
 			var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-			var connectionString = Environment.GetEnvironmentVariable("IDENTITY_CONNECTION_STRING");
+			var connectionString = Environment.GetEnvironmentVariable("IDENTITY_CONFIGURATION_CONNECTION_STRING");
 			var signingCredential = Environment.GetEnvironmentVariable("SIGNING_CREDENTIAL");
 			var protectKeyPath = Environment.GetEnvironmentVariable("PROTECT_KEY_PATH");
 			var tokenLifespanInHours = Environment.GetEnvironmentVariable("CODE_EXPIRE_TIME_IN_HOURS");
@@ -40,7 +40,7 @@ namespace MBP.Identity.Infrastructure.Configures
 				options.Password.RequireNonAlphanumeric = false;
 				options.User.AllowedUserNameCharacters = "abcdefghiıjklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+'#!/^%{}*";
 			})
-			.AddEntityFrameworkStores<IdentityDbContext>()
+			.AddEntityFrameworkStores<IdentityContext>()
 			.AddSignInManager<SignInValidator<MbpUser>>()
 			.AddDefaultTokenProviders();
 
