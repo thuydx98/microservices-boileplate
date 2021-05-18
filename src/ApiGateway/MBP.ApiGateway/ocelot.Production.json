@@ -1,3 +1,26 @@
 {
-
+	"Routes": [
+		{
+			"DownstreamPathTemplate": "/api/{catchAll}",
+			"DownstreamScheme": "http",
+			"DownstreamHostAndPorts": [
+				{
+					"Host": "localhost",
+					"Port": 5001
+				}
+			],
+			"AuthenticationOptions": {
+				"AuthenticationProviderKey": "identity-server",
+				"AllowedScopes": []
+			},
+			"AddHeadersToRequest": {
+				"userId": "Claims[sub] > value > |"
+			},
+			"UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+			"UpstreamPathTemplate": "/user-service/{catchAll}"
+		}
+	],
+	"GlobalConfiguration": {
+		"BaseUrl": "https://microservices.boilerplate"
+	}
 }

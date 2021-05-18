@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 
 namespace MBP.ApiGateway
 {
@@ -12,9 +13,11 @@ namespace MBP.ApiGateway
 
 		public static IHostBuilder CreateHostBuilder(string[] args) =>
 			Host.CreateDefaultBuilder(args)
-				.ConfigureWebHostDefaults(webBuilder =>
+				.ConfigureWebHostDefaults(builder =>
 				{
-					webBuilder.UseStartup<Startup>();
+					builder.UseKestrel()
+						.UseContentRoot(Directory.GetCurrentDirectory())
+						.UseStartup<Startup>();
 				});
 	}
 }

@@ -14,10 +14,10 @@ namespace MBP.Identity.Data
 		{
 			base.OnModelCreating(modelBuilder);
 
-			foreach (var entity in modelBuilder.Model.GetEntityTypes())
-			{
-				entity.SetTableName($"PG.{entity.GetTableName()}");
-			}
+			//foreach (var entity in modelBuilder.Model.GetEntityTypes())
+			//{
+			//	entity.SetTableName($"PG.{entity.GetTableName()}");
+			//}
 		}
 	}
 }

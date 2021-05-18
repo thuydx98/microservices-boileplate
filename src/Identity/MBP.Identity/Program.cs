@@ -9,7 +9,7 @@ namespace MBP.Identity
 		public static void Main(string[] args)
 		{
 			//CreateHostBuilder(args).Build().Run();
-			CreateHostBuilder(args).Build().UpdateSeedDataAsync().Run();
+			CreateHostBuilder(args).Build().UpdateSeedDataAsync().Result.Run();
 		}
 
 		public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -14,7 +14,7 @@ namespace MBP.Identity.Infrastructure.Configures
 
 			services.AddDbContext<IdentityContext>(options => options.UseNpgsql(connectionString));
 			services.AddDbContext<ConfigurationContext>(options => options.UseNpgsql(configurationConnectionString));
-			//services.AddDbContext<PersistedGrantContext>(options => options.UseNpgsql(connectionString));
+			services.AddDbContext<PersistedGrantContext>(options => options.UseNpgsql(configurationConnectionString));
 
 			return services;
 		}

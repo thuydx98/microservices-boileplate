@@ -3,7 +3,8 @@
     "MBP.ApiGateway": {
       "commandName": "Project",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "IDENTITY_SERVICE_URL": "http://localhost:5001"
       },
       "dotnetRunMessages": "true",
       "applicationUrl": "https://localhost:7000;http://localhost:5000"

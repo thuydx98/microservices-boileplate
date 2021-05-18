@@ -2,7 +2,7 @@
 {
 	public static class ClientID
 	{
-		public const string WEB_PORTAL = "WEB_PORTAL";
-		public const string WEB_BLOG = "WEB_BLOG";
+		public const string WEB_PORTAL = "portal";
+		public const string WEB_BLOG = "blog";
 	}
 }

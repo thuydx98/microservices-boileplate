@@ -1,22 +1,17 @@
 ﻿using MBP.Contracts.User;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MBP.Contracts.Middlewares.Authorization.Configurations
+namespace MBP.Contracts.Middlewares.Authorization.Configures
 {
 	public static class DependencyInjection
 	{
 		public static IServiceCollection AddAuthorize(this IServiceCollection services)
 		{
-			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+			services.AddHttpContextAccessor();
 			services.AddScoped<Lazy<HttpClient>>();
 			services.AddScoped<IAuthorizationHandler, PermissionHandler>();
 
